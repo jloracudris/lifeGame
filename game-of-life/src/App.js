@@ -375,10 +375,10 @@ class App extends Component {
     let table = []    
 
     // Outer loop to create parent
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 50; i++) {
       let children = []
       //Inner loop to create children
-      for (let j = 0; j < 10; j++) {
+      for (let j = 0; j < 50; j++) {
         const findAliveStuff = this.state.aliveStuff.filter((elem) => {
           return elem.x === i && elem.y === j;
         })
