@@ -17,6 +17,7 @@ class App extends Component {
     this.seed();
   }
 
+  // the initial seed
   seed() {
     this.setState({
       aliveStuff : [
@@ -54,17 +55,20 @@ class App extends Component {
     })
   }
 
+
+  //Starts the game
   StartGame = () => {
     this.ExecuteSearch();     
     clearInterval(interval);    
     const interval = setInterval(this.Play, 1000);    
   }
 
+  // Execute the killing Rules
   Play = () => {
     this.KillingRules();
   }
 
-
+  // Search the current to kill
   SearchAndDestoy(seed) {
     const livingSeedsArray = this.state.aliveStuff;
     livingSeedsArray.forEach((el) => {      
@@ -84,6 +88,7 @@ class App extends Component {
     return livingSeedsArray;
   }
 
+  // Killing rules
   KillingRules = () => {
     let result = [];
     // first rule         
@@ -97,6 +102,7 @@ class App extends Component {
       });
   }
 
+  // Searches for Neighbors
   ExecuteSearch = () => {
     this.findNeigbors().TopLeft();
     this.findNeigbors().Top();
@@ -108,6 +114,7 @@ class App extends Component {
     this.findNeigbors().BottomRight();    
   }
 
+  // Sum all neighbors
   SumNeighbors = function (array, seed) {
       const findCoords = array.forEach((element) => {
         if (element.x === seed.x && element.y === seed.y) {          
@@ -116,6 +123,7 @@ class App extends Component {
       });      
   }
 
+  // the find neighbors Closure
   findNeigbors() {
     const self = this;    
     const arrayOfNeigbors = this.state.neighbors;
@@ -362,6 +370,7 @@ class App extends Component {
 
   }
 
+  // Renders the table
   renderTable = () => {
     let table = []    
 
