@@ -396,7 +396,7 @@ class App extends Component {
           {this.renderTable()}
           </tbody>
         </table>
-        <input type="submit" value="send" onClick={()=> this.StartGame()} />
+        <input type="submit" value="Play!" onClick={()=> this.StartGame()} />
       </div>
     );
   }
